@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { hasDuplicatedNum, convertNumToArr} = require('./utils');
+const { hasDuplicatedNum, convertNumToArr, hasZero} = require('./utils');
 
 describe('utils.js', function () {
     describe('#hasDuplicatedNum(num)', function () {
@@ -23,6 +23,16 @@ describe('utils.js', function () {
             const result2 = convertNumToArr(11);
             assert.ok(result2[0] === '1');
             assert.ok(result2[1] === '1');
+        });
+    });
+
+    describe('#hasZero(num)', function () {
+        it('should return without zero', function () {
+            const result = hasZero(['1','3','9']);
+            assert.ok(result === false);
+
+            const result2 = hasZero(['2','0','3']);
+            assert.ok(result2 === true);
         });
     });
 });

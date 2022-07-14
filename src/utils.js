@@ -21,3 +21,12 @@ export function convertNumToArr(num) {
     const stringedNum = String(num);
     return [...stringedNum];
 }
+
+/** Array<string> 타입의 인풋에 '0'이 포함되는지 확인
+ *
+ * @param {Array<string>} inputArr
+ * @return {boolean}
+ */
+export function hasZero(inputArr) {
+    return inputArr.includes('0')
+}
