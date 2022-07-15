@@ -3,14 +3,17 @@
  * @param {number} max
  * @return {number}
  */
-import {convertNumToArr, hasDuplicatedNum} from "./utils";
+import {convertNumToArr, hasDuplicatedNum, hasZero} from "./utils";
 
 export function getRandomNumber(min, max) {
     let randomNumber;
+    let randomNumberArr;
     do {
         // randomNumber = MissionUtils.Random.pickNumberInRange(min, max);
         randomNumber = getRandomArbitrary(min,max);
-    } while (!hasDuplicatedNum(randomNumber) && !convertNumToArr(randomNumber));
+        console.log(randomNumber);
+        randomNumberArr = convertNumToArr(randomNumber);
+    } while (hasDuplicatedNum(randomNumber) || hasZero(randomNumberArr));
     return randomNumber;
 }
 
