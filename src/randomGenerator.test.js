@@ -31,7 +31,7 @@ describe('randomGenerator.js', () => {
       const min = 1;
       const max = 10;
 
-      for (let i=0; i<1000; i++) {
+      for (let i = 0; i < 1000; i++) {
         const result = randomGenerator.getExcludedRandomNum(min, max, () => true);
         assert.ok(result >= min && result <= max);
       }

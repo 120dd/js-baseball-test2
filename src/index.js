@@ -1,15 +1,15 @@
 import {
   getUserNumber,
-  registerSolveNumberButtonHandler
+  registerSolveNumberButtonHandler,
 } from './ui.js';
 import {
   RandomGenerator,
-  simpleRandomGenerator
+  simpleRandomGenerator,
 } from './randomGenerator';
 import {
   convertNumToArr,
   hasDuplicatedNum,
-  hasZero
+  hasZero,
 } from './utils';
 
 function initialize() {
