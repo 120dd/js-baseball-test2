@@ -27,11 +27,14 @@ describe('randomGenerator.js', () => {
       assert.ok(Number.isInteger(result) === true);
     });
 
-    it('should return between min and max', () => { // 이 테스트 코드는 오류를 검출하지못하는 경우가 있으므로, 조건을 변경해봤다.
+    it('should return between min and max during 1000 executions', () => {
       const min = 1;
-      const max = 1;
-      const result = randomGenerator.getExcludedRandomNum(min, max, () => true);
-      assert.ok(result === 1);
+      const max = 10;
+
+      for (let i=0; i<1000; i++) {
+        const result = randomGenerator.getExcludedRandomNum(min, max, () => true);
+        assert.ok(result >= min && result <= max);
+      }
     });
   });
 });
