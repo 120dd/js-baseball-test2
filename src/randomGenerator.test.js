@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { simpleRandomGenerator, RandomGenerator } = require('./randomGenerator');
+const { simpleRandomGenerator, RandomGenerator } = require('./randomGenerator.js');
 
 describe('randomGenerator.js', () => {
   describe('#simpleRandomGenerator(min, max)', () => {

@@ -5,12 +5,12 @@ import {
 import {
   RandomGenerator,
   simpleRandomGenerator,
-} from './randomGenerator';
+} from './randomGenerator.js';
 import {
   convertNumToArr,
   hasDuplicatedNum,
   hasZero,
-} from './utils';
+} from './utils.js';
 
 function initialize() {
   const randomGenerator = new RandomGenerator(simpleRandomGenerator);

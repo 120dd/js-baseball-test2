@@ -13,7 +13,7 @@ export function simpleRandomGenerator(min, max) {
  * @return {any}
  */
 export function missionUtilGenerator(min, max) {
-  return MissionUtils.Random.pickNumberInRange(min, max);
+  return window.MissionUtils.Random.pickNumberInRange(min, max);
 }
 
 /** 주어진 함수에 따른 랜덤값을 생성하기위한 클래스
