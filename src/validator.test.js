@@ -11,7 +11,7 @@ describe('validator.js', () => {
       assert.ok(validateUserNumber(123) === true);
     });
 
-    it('string 은 true 를 반환해야함', () => {
+    it('string 은 false 를 반환해야함', () => {
       assert.ok(validateUserNumber('123') === false);
     });
 
