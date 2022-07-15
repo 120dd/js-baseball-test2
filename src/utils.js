@@ -30,3 +30,13 @@ export function convertNumToArr(num) {
 export function hasZero(inputArr) {
     return inputArr.includes('0')
 }
+
+
+///** 인풋을 받아 조건에 따라 불리언을 반환
+// *
+// * @param {number} unfilteredNumber
+// * @returns {boolean}
+// */
+//export function excludeFilter(unfilteredNumber){
+//    return true
+//}
