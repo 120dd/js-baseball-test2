@@ -1,9 +1,22 @@
 const assert = require('assert');
 const {
   hasDuplicatedNum, convertNumToArr, hasZero, convertStringToNum, isNotPositiveInt, isLengthThree,
+  convertStrArrToNumArr, convertStringToNumberArray,
 } = require('./utils');
 
 describe('utils.js', () => {
+  describe('#convertStrArrToNumArr(strArr)', () => {
+    it('should return numberArray', () => {
+      const result = convertStrArrToNumArr(['1', '2', '3']);
+      assert.ok(typeof result[0] === 'number');
+    });
+
+    it('should return false when num is not duplicated', () => {
+      assert.ok(hasDuplicatedNum(123) === false);
+      assert.ok(hasDuplicatedNum(1234) === false);
+    });
+  });
+
   describe('#hasDuplicatedNum(num)', () => {
     it('should return true when num is duplicated', () => {
       assert.ok(hasDuplicatedNum(111) === true);
@@ -81,6 +94,12 @@ describe('utils.js', () => {
     it('인풋의 길이가 4 라면 아니라면 false 를 반환해야함', () => {
       const result = isLengthThree(1234);
       assert.ok(result === false);
+    });
+  });
+
+  describe('#convertStringToNumberArray(stringTypeNum)', () => {
+    it('should return [number] type', () => {
+      assert.ok(typeof convertStringToNumberArray('123')[0] === 'number');
     });
   });
 });

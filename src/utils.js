@@ -1,11 +1,18 @@
 /** number 타입의 인풋을 string 배열로 변경
- *
  * @param {number} num
  * @return {Array<string>}
  */
 export function convertNumToArr(num) {
   const stringedNum = String(num);
   return [...stringedNum];
+}
+
+/** Array<string> 을 Array<number>로 변경
+ * @param {Array<string>}strArr
+ * @return {[number]}
+ */
+export function convertStrArrToNumArr(strArr) {
+  return strArr.map(Number);
 }
 
 /** string type 값을 받아서 number type 으로 변경
@@ -17,7 +24,6 @@ export function convertStringToNum(str) {
 }
 
 /** 인풋에 중복된 숫자가있는지 확인한다
- *
  * @param {number} num
  * @return {boolean}
  */
@@ -56,4 +62,14 @@ export function isNotPositiveInt(input) {
 export function isLengthThree(input) {
   const inputLength = input.toString().length;
   return inputLength === 3;
+}
+
+/** string 타입 숫자를 받아서 [number] 배열로 변경
+ * @param {string} stringTypeNum
+ * @return {number[]}
+ */
+export function convertStringToNumberArray(stringTypeNum) {
+  const numTypeData = convertStringToNum(stringTypeNum);
+  const strArrTypeData = convertNumToArr(numTypeData);
+  return convertStrArrToNumArr(strArrTypeData);
 }
