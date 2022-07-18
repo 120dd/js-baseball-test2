@@ -102,14 +102,14 @@ describe('play.js', () => {
     it('중복값이 2개일 경우 2를 반환해야한다', () => {
       const computerInputNumbers = [1, 2, 3];
       const userInputNumbers = [1, 2, 8];
-      const result = checkStrikeAndBall(computerInputNumbers, userInputNumbers);
+      const result = checkStrike(computerInputNumbers, userInputNumbers);
       assert.ok(result === 2);
     });
 
     it('중복값이 없을 경우 0을 반환해야한다', () => {
       const computerInputNumbers = [1, 2, 3];
       const userInputNumbers = [4, 5, 6];
-      const result = checkStrikeAndBall(computerInputNumbers, userInputNumbers);
+      const result = checkStrike(computerInputNumbers, userInputNumbers);
       assert.ok(result === 0);
     });
   });
