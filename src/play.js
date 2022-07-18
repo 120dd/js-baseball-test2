@@ -1,4 +1,4 @@
-import { convertStringToNumberArray } from './utils.js';
+import { convertNumToArr, convertStringToNumberArray } from './utils.js';
 
 /** 인풋을 비교하여 중복되는 값의 개수(볼)을 반환함
  * @param {[number]} computerInputNumbers
@@ -52,13 +52,16 @@ export function playResultHandler(strikeAndBallCount, strikeCount) {
 }
 
 /** 인풋을 비교하여 결과값을 반환
- * @param {Array<number>} computerInputNumbers
- * @param {string} userInputString
+ * @param {number} computerInputNumbers
+ * @param {number} userInputNumbers
  * @return {string}
  */
-export function play(computerInputNumbers, userInputString) {
-  const userInputNumbers = convertStringToNumberArray(userInputString);
-  const strikeAndBallCount = checkStrikeAndBall(computerInputNumbers, userInputNumbers);
-  const strikeCount = checkStrike(computerInputNumbers, userInputNumbers);
+export function play(computerInputNumbers, userInputNumbers) {
+  console.log(computerInputNumbers);
+  console.log(userInputNumbers);
+  const typeConvertedComputerInput = convertStringToNumberArray(String(computerInputNumbers));
+  const typeConvertedUserInput = convertStringToNumberArray(String(userInputNumbers));
+  const strikeAndBallCount = checkStrikeAndBall(typeConvertedComputerInput, typeConvertedUserInput);
+  const strikeCount = checkStrike(typeConvertedComputerInput, typeConvertedUserInput);
   return playResultHandler(strikeAndBallCount, strikeCount);
 }

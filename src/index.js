@@ -32,8 +32,7 @@ export function initialize() {
       alert('잘못된 값입니다.');
       return;
     }
-    const computerRandomNumbers = convertStrArrToNumArr(convertNumToArr(computerRandomNumber));
-    changeResult(play(computerRandomNumbers, String(userNumber)));
+    changeResult(play(computerRandomNumber, userNumber));
     showRestart();
   });
 
