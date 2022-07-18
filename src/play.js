@@ -46,7 +46,7 @@ export function playResultHandler(strikeAndBallCount, strikeCount) {
     return `${strikeCount} 스트라이크`;
   }
   if (strikeCount === 3) {
-    return '축하합니다';
+    return '<strong>🎉정답을 맞추셨습니다🎉</strong>';
   }
   return `${ballCount}볼 ${strikeCount}스트라이크`;
 }

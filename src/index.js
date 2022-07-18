@@ -1,10 +1,11 @@
 import {
-  getUserNumber,
-  registerSolveNumberButtonHandler,
+  changeResult,
+  getUserNumber, registerRestartButtonHandler,
+  registerSolveNumberButtonHandler, showRestart,
 } from './ui.js';
 import {
+  missionUtilGenerator,
   RandomGenerator,
-  simpleRandomGenerator,
 } from './randomGenerator.js';
 import {
   convertNumToArr, convertStrArrToNumArr, convertStringToNum,
@@ -15,7 +16,8 @@ import { validateUserNumber } from './validator.js';
 import { play } from './play.js';
 
 export function initialize() {
-  const randomGenerator = new RandomGenerator(simpleRandomGenerator);
+  changeResult('');
+  const randomGenerator = new RandomGenerator(missionUtilGenerator);
 
   const computerRandomNumber = randomGenerator.getExcludedRandomNum(123, 987, (data) => {
     const randomNumberArr = convertNumToArr(data);
@@ -31,9 +33,13 @@ export function initialize() {
       return;
     }
     const computerRandomNumbers = convertStrArrToNumArr(convertNumToArr(computerRandomNumber));
-    console.log(computerRandomNumbers);
-    console.log(String(userNumber));
-    console.log(play(computerRandomNumbers, String(userNumber)));
+    changeResult(play(computerRandomNumbers, String(userNumber)));
+    showRestart();
+  });
+
+  registerRestartButtonHandler((e) => {
+    e.preventDefault();
+    initialize();
   });
 }
 
