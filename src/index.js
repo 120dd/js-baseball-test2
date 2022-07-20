@@ -1,28 +1,44 @@
 import {
-  getUserNumber,
-  registerSolveNumberButtonHandler,
+  changeResult,
+  getUserNumber, registerRestartButtonHandler,
+  registerSolveNumberButtonHandler, showRestart,
 } from './ui.js';
 import {
+  missionUtilGenerator,
   RandomGenerator,
-  simpleRandomGenerator,
 } from './randomGenerator.js';
 import {
-  convertNumToArr,
+  convertNumToArr, convertStrArrToNumArr, convertStringToNum,
   hasDuplicatedNum,
   hasZero,
 } from './utils.js';
+import { validateUserNumber } from './validator.js';
+import { play } from './play.js';
 
-function initialize() {
-  const randomGenerator = new RandomGenerator(simpleRandomGenerator);
+export function initialize() {
+  changeResult('');
+  const randomGenerator = new RandomGenerator(missionUtilGenerator);
 
   const computerRandomNumber = randomGenerator.getExcludedRandomNum(123, 987, (data) => {
     const randomNumberArr = convertNumToArr(data);
     return !(hasDuplicatedNum(data) || hasZero(randomNumberArr));
   });
 
-  registerSolveNumberButtonHandler(() => {
-    const userNumber = getUserNumber();
-    console.log(userNumber);
+  registerSolveNumberButtonHandler((e) => {
+    e.preventDefault();
+    const userInput = getUserNumber();
+    const userNumber = convertStringToNum(userInput);
+    if (!validateUserNumber(userNumber)) {
+      alert('잘못된 값입니다.');
+      return;
+    }
+    changeResult(play(computerRandomNumber, userNumber));
+    showRestart();
+  });
+
+  registerRestartButtonHandler((e) => {
+    e.preventDefault();
+    initialize();
   });
 }
 
